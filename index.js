@@ -1,13 +1,9 @@
 // biblioteca js que faz o mapeamento das pastas em função do server.js
 require('rootpath')(); 
-var config = require('config.json');
 // Inicialização do express. 
 var express = require('express');
 // bibloteca que ajuda no parse de mensagens requisitadas que contém JSON
 var bodyParser = require('body-parser');
-
-// carrega as configurações mapeadas no json
-var config = require('config.json');
 
 // Criação da API e indicação que trabalha com JSON
 var api = express();
@@ -17,8 +13,8 @@ api.use('/api/pessoas', require('./controllers/api/pessoas.controller'));
 api.use('/api/about', require('./controllers/api/about.controller'));
 
 
-// Porta fixa
-var apiPort = config.port;
+// process.env.PORT é uma variável injetada pelo Azure Web App. Caso ela não exista, será utilizada a porta fixa (6000)
+var apiPort = process.env.PORT || 6000;
 
 
 // start server API
