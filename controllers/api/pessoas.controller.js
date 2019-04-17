@@ -23,17 +23,18 @@ function createPerson(req, res) {
 }
 
 function listPeople(req, res) {
-    pessoaService.listPeople()
-        .then(function (people) {
-            if (people) {
-                res.send(people);
-            } else {
-                res.sendStatus(404);
-            }
-        })
-        .catch(function (err) {
-            res.status(400).send(err);
-        });
+
+        pessoaService.listPeople()
+            .then(function (people) {
+                if (people) {
+                    res.send(people);
+                } else {
+                    res.sendStatus(404);
+                }
+            })
+            .catch(function (err) {
+                res.status(400).send(err);
+            });
 }
 
 function getCurrentPerson(req, res) {

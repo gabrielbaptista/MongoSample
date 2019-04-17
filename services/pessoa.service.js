@@ -77,7 +77,6 @@ function listPeople() {
             deferred.resolve();
         }
     });
-
     return deferred.promise;
 }
 
