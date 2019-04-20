@@ -1,4 +1,6 @@
 {
     "connectionString": "mongodb://localhost:27017/mongo-sample",
-    "version": "1.0.0 - 16/04/2019"
+    "version": "1.0.0 - 16/04/2019",
+    "port": 6000,
+    "secret": "MongoSampleSecret"
 }
