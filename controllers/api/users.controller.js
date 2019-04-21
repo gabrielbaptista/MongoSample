@@ -40,7 +40,7 @@ function registerUser(req, res) {
 }
 
 function getCurrentUser(req, res) {
-    userService.getById(req.session.userId)
+    userService.getById(req.body.userId)
         .then(function (user) {
             if (user) {
                 res.send(user);
@@ -54,7 +54,7 @@ function getCurrentUser(req, res) {
 }
 
 function updateUser(req, res) {
-    var userId = req.session.userId;
+    var userId = req.body.userId;
     if (req.params._id !== userId) {
         // can only update own account
         return res.status(401).send('Você só pode alterar a sua própria conta');
