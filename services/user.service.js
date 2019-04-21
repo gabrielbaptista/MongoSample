@@ -4,7 +4,8 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var Q = require('q');
 var mongo = require('mongoskin');
-var db = mongo.db(config.connectionString, { native_parser: true });
+var connection = process.env.connectionString || config.connectionString;
+var db = mongo.db(connection, { native_parser: true });
 db.bind('users');
 
 var service = {};
