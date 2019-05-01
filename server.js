@@ -1,3 +1,4 @@
+// Exemplificação dos comandos git
 // biblioteca js que faz o mapeamento das pastas em função do server.js
 require('rootpath')(); 
 // Inicialização do express. 
