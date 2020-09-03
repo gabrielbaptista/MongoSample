@@ -86,7 +86,7 @@ function update(personParam) {
     var deferred = Q.defer();
 
     // validation
-    db.people.findById(personParam.personId, function (err, person) {
+    db.people.findById(personParam._id, function (err, person) {
         if (err) deferred.reject(err.name + ': ' + err.message);
 
         if (person) {
@@ -103,10 +103,12 @@ function update(personParam) {
         };
 
         db.people.update(
-            { _id: mongo.helper.toObjectID(personParam.personId) },
+            { _id: mongo.helper.toObjectID(personParam._id) },
             { $set: set },
             function (err, doc) {
-                if (err) deferred.reject(err.name + ': ' + err.message);
+                if (err) {
+                    deferred.reject(err.name + ': ' + err.message);
+                }
 
                 deferred.resolve();
             });
@@ -121,7 +123,9 @@ function _delete(_id) {
     db.people.remove(
         { _id: mongo.helper.toObjectID(_id) },
         function (err) {
-            if (err) deferred.reject(err.name + ': ' + err.message);
+            if (err) {
+                deferred.reject(err.name + ': ' + err.message);
+            }
 
             deferred.resolve();
         });

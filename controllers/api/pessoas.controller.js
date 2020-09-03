@@ -3,14 +3,13 @@ var router = express.Router();
 var pessoaService = require('services/pessoa.service');
 
 // routes
-router.post('/create', createPerson);
-router.get('/current', getCurrentPerson);
+router.post('/', createPerson);
 router.get('/', listPeople);
-router.put('/:_id', updatePerson);
+router.put('/', updatePerson);
+router.get('/:_id', getCurrentPerson);
 router.delete('/:_id', deletePerson);
 
 module.exports = router;
-
 
 function createPerson(req, res) {
     pessoaService.create(req.body)
@@ -38,7 +37,7 @@ function listPeople(req, res) {
 }
 
 function getCurrentPerson(req, res) {
-    var personId = req.param('personId');
+    var personId = req.params._id;
     pessoaService.getById(personId)
         .then(function (person) {
             if (person) {
@@ -63,7 +62,7 @@ function updatePerson(req, res) {
 }
 
 function deletePerson(req, res) {
-    var personId = req.param('personId');
+    var personId = req.params._id;
     pessoaService.delete(personId)
         .then(function () {
             res.sendStatus(200);
