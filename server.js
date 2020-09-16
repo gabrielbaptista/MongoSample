@@ -35,3 +35,5 @@ var apiPort = process.env.PORT || config.port;
 var serverAPI = api.listen(apiPort, function () {
     console.log('Server API listening at http://' + serverAPI.address().address + ':' + serverAPI.address().port);
 });
+
+console.log('Application started');

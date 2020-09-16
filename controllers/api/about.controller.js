@@ -8,5 +8,9 @@ router.get('/', about);
 module.exports = router;
 
 function about(req, res) {
-   res.send({version: config.version});
+   res.send(
+      {
+         version: config.version
+      }
+   );
 }
