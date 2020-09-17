@@ -1,6 +1,6 @@
 {
-    "connectionString": "",
-    "version": "1.0.1 - 03/09/2020",
+    "connectionString": "myConnectionString",
+    "version": "1.0.2 - 17/09/2020",
     "port": 6000,
     "secret": "MongoSampleSecret"
 }
