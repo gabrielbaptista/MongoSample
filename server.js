@@ -10,9 +10,11 @@ var bodyParser = require('body-parser');
 // https://jwt.io/introduction/
 var expressJwt = require('express-jwt');
 var config = require("./config.json");
+var cors = require('cors');
 
 // Criação da API e indicação que trabalha com JSON
 var api = express();
+api.use(cors());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 
